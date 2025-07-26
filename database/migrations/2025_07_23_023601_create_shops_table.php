@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('shops', function (Blueprint $table) {
             $table->id();
-             $table->string('name');
+            $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->string("profile_image")->nullable();
             $table->string('shop_name');
             $table->string('shop_address');
