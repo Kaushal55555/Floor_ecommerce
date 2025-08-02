@@ -33,4 +33,12 @@ class AuthController extends Controller
 
         return redirect('/');
     }
+
+    public function redirectToFacebook()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+
+
 }

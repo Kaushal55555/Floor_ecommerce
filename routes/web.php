@@ -16,6 +16,9 @@ Route::get("/product/{id}", [PageController::class, "product"])->name("product")
 Route::get('/google/redirect', [AuthController::class, 'redirectToGoogle'])->name('google.redirect');
 Route::get('/google/callback', [AuthController::class, 'handleGoogleCallback'])->name('google.callback');
 
+Route::get('/facebook/redirect', [AuthController::class, 'redirectToFacebook'])->name('facebook.redirect');
+Route::get('/facebook/callback', [AuthController::class, 'handleFacebookCallback'])->name('facebook.callback');
+
 Route::get('/dashboard', function () {
     return redirect()->route('home');
 })->middleware(['auth', 'verified'])->name('dashboard');

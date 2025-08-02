@@ -7,6 +7,7 @@ use App\Mail\ShopRequestNotification;
 use App\Models\Product;
 use App\Models\Shop;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class PageController extends BaseController
@@ -15,6 +16,8 @@ class PageController extends BaseController
     {
         $shops = Shop::where('status', 'approved')->where('expire_date', '>=', date('Y-m-d'))->orderBy('id', 'desc')->get();
         $products = Product::where('discount_percentage', ">", 0)->orderBy('id', 'desc')->get();
+
+        Log::info("hello");
         return view('frontend.home', compact('shops', 'products'));
     }
 
